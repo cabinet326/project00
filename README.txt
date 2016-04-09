@@ -29,3 +29,6 @@ RUN.txt
 
 README.txt
     - description of submitted files
+    
+NOTES.txt
+    - some notes/observations about this project
