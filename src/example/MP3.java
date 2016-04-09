@@ -2,8 +2,9 @@ package example;
 
 import java.util.Calendar;
 
+
 /**
- * One object of class MP3 stores a simplified version of a song's properties.
+/ * One object of class MP3 stores a simplified version of a song's properties.
  * @author Foothill College, Bita M
  */
 public class MP3 

@@ -160,7 +160,7 @@ public class MyTunes
 	 * @return an MP3 entry
 	 */
 	public MP3 getMP3(int requested)
-	{	return library[requested];	}
+	{	return library[requested]; }
 
 	
 	/**

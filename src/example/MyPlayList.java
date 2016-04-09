@@ -1,6 +1,5 @@
 package example;
 
-
 import java.util.Scanner;
 
 /** 
@@ -61,7 +60,8 @@ public class MyPlayList
 		
 		for (int i = 0; i < numSongsToAdd; i++)
 		{
-			int requested = new Integer(requests[i]);
+			int requested = Integer.parseInt( requests[i] );
+			
 			MP3 current = myMusic.getMP3(requested);
 			
 			// Using previous addPos
@@ -124,29 +124,47 @@ public class MyPlayList
 		MyPlayList favsList = new MyPlayList();
 
 		System.out.println("Current tunes in library:");
-		myMusic = new MyTunes();
+		myMusic = new MyTunes(); // load library of tunes
 		myMusic.printLibrary();
 		
 		int selection;
 		
 		do
 		{
-			// menu
-			System.out.println("\nWhat would you like to do?");
-			System.out.println("  1. add songs");
-			System.out.println("  2. print library");
-			System.out.println("  3. print playlist");
-			System.out.println("  4. search for a song by artist in library");
-			System.out.println("  5. search for a song by title and artist in library");
-			System.out.println("  6. search for a song by genre and year in library");
-			System.out.println("  7. Quit");
-			System.out.println("Enter your selection:");
-
+			selection = -1;
+			
 			Scanner keyboard = new Scanner(System.in);
-			selection = Integer.parseInt(keyboard.nextLine());
+			
+			do {
+				// menu
+				System.out.println("\nWhat would you like to do?");
+				System.out.println("  1. add songs");
+				System.out.println("  2. print library");
+				System.out.println("  3. print playlist");
+				System.out.println("  4. search for a song by artist in library");
+				System.out.println("  5. search for a song by title and artist in library");
+				System.out.println("  6. search for a song by genre and year in library");
+				System.out.println("  7. Quit");
+				System.out.println("Enter your selection:");
 
-			switch( selection )
-			{
+				String menuSelect = keyboard.nextLine();
+				
+				try {
+					selection = Integer.parseInt(menuSelect);
+				}
+				catch( NumberFormatException ex ) {
+					System.out.println("Invalid menu choice.  Please re-enter your menu choice");
+					selection = -1;
+					continue;
+				}
+				if ( selection < 1 || selection > 7 ) {
+					System.out.println("Menu options 1 thru 7 please...");
+					continue;
+				}
+			} while ( selection == -1 || selection < 1 || selection > 7 );
+
+			switch( selection ) {
+			
 			case 1:
 				System.out.println("Enter song numbers [for example: 1,2,3] to add to playlist:");
 				String songNumbers = keyboard.nextLine();
@@ -192,7 +210,7 @@ public class MyPlayList
 				favsList.addMP3s(searchResult);
 			default:
 			} // switch
-		} while (selection != 5);
+		} while (selection != 7);
 		
 		System.out.println("Goodbye.");
 	}
