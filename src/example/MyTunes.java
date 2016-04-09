@@ -240,7 +240,7 @@ public class MyTunes
 
 		if (numFound == 0)
 			return null;
-		return foundSongs;
+		return foundSongs;  // Might consider using Arrays.copyOf to return a MP3[] with the correct length.
 	}
 
 	/**

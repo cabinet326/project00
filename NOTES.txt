@@ -1,0 +1,23 @@
+HI Bita --
+
+  Hear are some notes I have noticed:
+  
+     1) I have noticed that you haven't checked for the user typing in ( for example ) song numbers incorrectly
+        like entering a string "xxx" instead of "1".  I have made an exapmle correction for when the user enters
+        a "menu selection".
+     2 ) Along with the suggestion to use ArrayList,  I would also suggest using the Streams and Lambda expressions.
+     3 ) Also wondering about why you had a main() in MyTunes to run tests and you didn't have a main()
+         in MyPlayList to run test.
+     
+     3 ) Also wondering about why you didn't create a MyPlayList App with a dedicated main()
+     4 ) You could have created MyPlayList such that you passed it a Reader so that you could run tests (
+         by creating a FileReader of a text file containing tests to run).  And you also you could also pass
+         a Writer to store the tests results.
+         
+         like:
+         MyPlayList pl = new MyPlayList( System.out, System.in );
+         and
+         MyPlayList pl = new MyPlayList( new FileReader( "mplTest.txt" ), new FileWriter( "mplTestOut.txt") );
+
+         
+     
